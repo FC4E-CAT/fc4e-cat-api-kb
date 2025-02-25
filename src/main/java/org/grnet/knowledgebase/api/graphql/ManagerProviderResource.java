@@ -1,28 +1,29 @@
 package org.grnet.knowledgebase.api.graphql;
 
 import io.quarkus.panache.common.Page;
+import jakarta.annotation.security.RolesAllowed;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Query;
 import org.grnet.knowledgebase.api.entity.Identifier;
 import org.grnet.knowledgebase.api.entity.Manager;
 import org.grnet.knowledgebase.api.entity.ManagerProvider;
-import org.grnet.knowledgebase.api.entity.ManagerProviderId;
 
 import java.util.List;
-import java.util.Optional;
 
 @GraphQLApi
 public class ManagerProviderResource {
 
     @Query("allManagerProviders")
     @Description("Get All Manager Providers")
+    @RolesAllowed({"admin"})
     public List<ManagerProvider> getAllManagerProviders() {
         return ManagerProvider.listAll();
     }
 
     @Query("managers")
     @Description("Get All Managers")
+    @RolesAllowed({"user"})
     public List<Manager> getAllManagers() {
         return Manager.listAll();
     }
