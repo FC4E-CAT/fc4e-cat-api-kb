@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.entity;
+package org.grnet.knowledgebase.api.entity.relation;
 
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
@@ -8,6 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import org.grnet.knowledgebase.api.entity.Identifier;
+import org.grnet.knowledgebase.api.entity.Manager;
+import org.grnet.knowledgebase.api.entity.Provider;
 
 @Entity
 @Table(name = "k_Manager_Provider")
