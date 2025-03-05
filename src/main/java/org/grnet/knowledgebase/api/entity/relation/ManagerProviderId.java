@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.entity;
+package org.grnet.knowledgebase.api.entity.relation;
 
 import java.io.Serializable;
 import java.util.Objects;

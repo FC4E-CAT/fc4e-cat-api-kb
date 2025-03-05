@@ -7,7 +7,7 @@ import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Query;
 import org.grnet.knowledgebase.api.entity.Identifier;
 import org.grnet.knowledgebase.api.entity.Manager;
-import org.grnet.knowledgebase.api.entity.ManagerProvider;
+import org.grnet.knowledgebase.api.entity.relation.ManagerProvider;
 
 import java.util.List;
 
