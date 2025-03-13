@@ -3,7 +3,6 @@ package org.grnet.knowledgebase.api.repository;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.grnet.knowledgebase.api.entity.view.PropertiesStackDynamic;
-import org.grnet.knowledgebase.api.entity.view.ResolvedIdentifierStack;
 
 import java.util.List;
 

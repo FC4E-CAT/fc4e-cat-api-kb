@@ -1,12 +1,10 @@
 package org.grnet.knowledgebase.api.graphql;
 
-import jakarta.inject.Inject;
 import jakarta.enterprise.context.ApplicationScoped;
-import org.eclipse.microprofile.graphql.Description;
-import org.eclipse.microprofile.graphql.GraphQLApi;
-import org.eclipse.microprofile.graphql.Query;
-import org.grnet.knowledgebase.api.entity.view.ResolvedIdentifierMPA;
-import org.grnet.knowledgebase.api.repository.ResolvedIdentifierMPARepository;
+import jakarta.inject.Inject;
+import org.eclipse.microprofile.graphql.*;
+import org.grnet.knowledgebase.api.entity.view.ResolvedIdentifierProvider;
+import org.grnet.knowledgebase.api.repository.ResolvedIdentifierProviderRepository;
 
 import java.util.List;
 
@@ -15,37 +13,32 @@ import java.util.List;
 public class ResolvedIdentifierProviderResource {
 
     @Inject
-    ResolvedIdentifierMPARepository repository;
+    ResolvedIdentifierProviderRepository repository;
 
-    /**
-     * 📄 Retrieves all Resolved Identifier MPAs.
-     * @return List of all MPAs.
-     */
-    @Query("getResolvedIdentifierMPAs")
-    public List<ResolvedIdentifierMPA> getResolvedIdentifierMPAs() {
+    @Query("getResolvedIdentifierProviders")
+    @Description("Fetch all resolved identifier provider")
+    public List<ResolvedIdentifierProvider> getResolvedIdentifierProviders() {
         return repository.listAll();
     }
 
-    /**
-     * Finds MPAs by label.
-     * @param labelMPA The label of the MPA (e.g., "DataCite").
-     * @return List of MPAs matching the label.
-     */
-    @Query("getResolvedIdentifierMPAsByLabel")
-    public List<ResolvedIdentifierMPA> getResolvedIdentifierMPAsByLabel(String labelMPA) {
-        return repository.findByLabel(labelMPA);
+    @Query("getResolvedIdentifierProvidersByLabel")
+    @Description("Fetches a list of resolved identifier providers by label")
+    public List<ResolvedIdentifierProvider> getResolvedIdentifierProvidersByLabel(
+            @Name("label")
+            @Description("The label of the actor: Provider")
+            String labelProvider) {
+        return repository.find("labelProvider", labelProvider).list();
     }
 
-    /**
-     * Retrieves a paginated list of MPAs.
-     * @param page The page number (starting from 0).
-     * @param size The number of records per page.
-     * @return A paginated list of MPAs.
-     */
-    @Query("getResolvedIdentifierMPAsPaged")
-    public List<ResolvedIdentifierMPA> getResolvedIdentifierMPAsPaged(
-            @Description("Page number to fetch") int page,
-            @Description("Number of items per page") int size) {
+    @Query("getResolvedIdentifierProvidersPaged")
+    @Description("Fetches a paginated list of resolved identifier providers")
+    public List<ResolvedIdentifierProvider> getResolvedIdentifierProvidersPaged(
+            @Name("Page")
+            @DefaultValue("1")
+            @Description("Indicates the page number. Page number must be >= 1.") int page,
+            @Name("Size")
+            @DefaultValue("10")
+            @Description("Page size must be between 1 and 100.") int size){
         return repository.findByPage(page, size);
     }
 }

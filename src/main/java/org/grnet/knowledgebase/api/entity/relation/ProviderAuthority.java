@@ -7,7 +7,7 @@ import org.grnet.knowledgebase.api.entity.Authority;
 import org.grnet.knowledgebase.api.entity.Provider;
 
 @Entity
-@Table(name = "k_Manager_Provider")
+@Table(name = "k_Provider_Authority")
 public class ProviderAuthority extends PanacheEntityBase {
 
     @EmbeddedId
