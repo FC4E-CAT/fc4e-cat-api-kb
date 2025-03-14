@@ -2,9 +2,7 @@ package org.grnet.knowledgebase.api.graphql;
 
 import io.quarkus.panache.common.Page;
 import jakarta.annotation.security.RolesAllowed;
-import org.eclipse.microprofile.graphql.Description;
-import org.eclipse.microprofile.graphql.GraphQLApi;
-import org.eclipse.microprofile.graphql.Query;
+import org.eclipse.microprofile.graphql.*;
 import org.grnet.knowledgebase.api.entity.Identifier;
 import org.grnet.knowledgebase.api.entity.Manager;
 import org.grnet.knowledgebase.api.entity.relation.ManagerProvider;
@@ -30,8 +28,15 @@ public class ManagerProviderResource {
 
     @Query("identifiers")
     @Description("Fetches a paginated list of identifiers")
-    public List<Identifier> getPaginatedIdentifiers(@Description("Page number to fetch") int page,
-                                                    @Description("Number of items per page") int size) {
+    public List<Identifier> getPaginatedIdentifiers(
+            @Name("page")
+            @Description("Page number to fetch")
+            @DefaultValue("1")
+            int page,
+            @Name("size")
+            @Description("Number of items per page")
+            @DefaultValue("10")
+            int size) {
         return Identifier
                 .findAll()
                 .page(Page.of(page, size))

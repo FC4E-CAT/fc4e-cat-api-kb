@@ -13,6 +13,10 @@ public class PropertiesStackCombinedRepository implements PanacheRepository<Prop
         return find("labelProperty", labelProperty).list();
     }
 
+    public List<PropertiesStackCombined> searchByKeyword(String search) {
+        return find("lodIDN ilike ?1 OR labelProperty ilike ?1 OR value ilike ?1", "%" + search + "%").list();
+    }
+
     public List<PropertiesStackCombined> findByPage(int page, int size) {
         return findAll().page(page, size).list();
     }
