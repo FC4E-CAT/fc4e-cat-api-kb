@@ -31,7 +31,7 @@ public class Manager extends PanacheEntityBase {
     @Column(name = "Certification", columnDefinition = "TEXT")
     public String Certification;
 
-    @Column(name = "Country")
+    @Column(name = "Country", columnDefinition = "TEXT")
     public String Country;
 
     @Column(name = "startDate")

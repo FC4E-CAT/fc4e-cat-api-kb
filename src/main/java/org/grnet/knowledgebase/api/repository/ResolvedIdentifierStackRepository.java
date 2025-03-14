@@ -2,6 +2,7 @@ package org.grnet.knowledgebase.api.repository;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
+import org.grnet.knowledgebase.api.entity.view.PropertiesStackCombined;
 import org.grnet.knowledgebase.api.entity.view.ResolvedIdentifierStack;
 
 import java.util.List;
@@ -9,6 +10,9 @@ import java.util.List;
 @ApplicationScoped
 public class ResolvedIdentifierStackRepository implements PanacheRepository<ResolvedIdentifierStack> {
 
+    public ResolvedIdentifierStack findById(String lodIDN) {
+        return find("lodIDN", lodIDN).firstResult();
+    }
     public List<ResolvedIdentifierStack> findByStackLabel(String stackLabel) {
         return find("label", stackLabel).list();
     }

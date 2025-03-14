@@ -7,8 +7,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import org.eclipse.microprofile.graphql.Description;
 
+import java.time.ZonedDateTime;
+
 @Entity
-@Table(name = "k_Type_Manager")
+@Table(name = "k_MPA")
 public class MPA extends PanacheEntityBase {
 
     @Id
@@ -30,7 +32,7 @@ public class MPA extends PanacheEntityBase {
     public String descMPA;
 
     @Column(name = "startDate")
-    public String startDate;
+    public ZonedDateTime startDate;
 
     @Column(name = "populatedBy")
     public String populatedBy;

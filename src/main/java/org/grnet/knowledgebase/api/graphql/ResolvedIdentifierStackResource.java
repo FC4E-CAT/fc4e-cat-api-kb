@@ -3,6 +3,7 @@ package org.grnet.knowledgebase.api.graphql;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.graphql.*;
+import org.grnet.knowledgebase.api.entity.view.PropertiesStackCombined;
 import org.grnet.knowledgebase.api.entity.view.ResolvedIdentifierStack;
 import org.grnet.knowledgebase.api.repository.ResolvedIdentifierStackRepository;
 
@@ -19,6 +20,14 @@ public class ResolvedIdentifierStackResource {
     @Description("Fetches resolved identifier stack ")
     public List<ResolvedIdentifierStack> getResolvedIdentifierStack() {
         return repository.listAll();
+    }
+
+    @Query("getResolvedIdentifierStackById")
+    @Description("Fetches a paginated list of identifiers")
+    public ResolvedIdentifierStack getAuthorityById(
+            @Name("id")
+            @Description("The id of the authority") String id) {
+        return repository.findById(id);
     }
 
     @Query("getResolvedIdentifierStackByLabel")

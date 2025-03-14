@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import org.eclipse.microprofile.graphql.Description;
 
 @Entity
-@Table(name = "k_Type_Manager")
+@Table(name = "k_Authority")
 public class Authority extends PanacheEntityBase {
 
     @Id
