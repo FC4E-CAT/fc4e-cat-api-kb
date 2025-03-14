@@ -3,6 +3,7 @@ package org.grnet.knowledgebase.api.graphql;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.graphql.*;
+import org.grnet.knowledgebase.api.entity.Authority;
 import org.grnet.knowledgebase.api.entity.view.PropertiesStackCombined;
 import org.grnet.knowledgebase.api.repository.PropertiesStackCombinedRepository;
 
@@ -19,6 +20,14 @@ public class PropertiesStackCombinedResource {
     @Description("Fetches combined properties from the database.")
     public List<PropertiesStackCombined> getPropertiesStackCombined() {
         return repository.listAll();
+    }
+
+    @Query("getPropertiesStackCombinedById")
+    @Description("Fetches a paginated list of identifiers")
+    public PropertiesStackCombined getAuthorityById(
+            @Name("id")
+            @Description("The id of the authority") String id) {
+        return repository.findById(id);
     }
 
     @Query("getPropertiesStackCombinedByLabel")
