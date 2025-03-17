@@ -25,7 +25,7 @@ pipeline {
                 mvn clean package -Dquarkus.package.type=uber-jar
                 """
                 junit testResults: '**/**/target/surefire-reports/*.xml', allowEmptyResults: true
-                archiveArtifacts artifacts: '**/api/target/*.jar'
+                archiveArtifacts artifacts: '**/target/*.jar'
                 step( [ $class: 'JacocoPublisher' ] )
             }
             post {
