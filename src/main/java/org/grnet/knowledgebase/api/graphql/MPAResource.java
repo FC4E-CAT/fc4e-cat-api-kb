@@ -1,13 +1,10 @@
 package org.grnet.knowledgebase.api.graphql;
 
 import jakarta.inject.Inject;
-import org.eclipse.microprofile.graphql.Description;
-import org.eclipse.microprofile.graphql.GraphQLApi;
-import org.eclipse.microprofile.graphql.Name;
-import org.eclipse.microprofile.graphql.Query;
-import org.grnet.knowledgebase.api.entity.Authority;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import org.eclipse.microprofile.graphql.*;
 import org.grnet.knowledgebase.api.entity.MPA;
-import org.grnet.knowledgebase.api.repository.AuthorityRepository;
 import org.grnet.knowledgebase.api.repository.MPARepository;
 
 import java.util.List;
@@ -25,10 +22,27 @@ public class MPAResource {
     }
 
     @Query("getMPAById")
-    @Description("Fetches a paginated list of MPAs")
+    @Description("Fetches a MPA by Id")
     public MPA getMPAById(
             @Name("id")
+            @DefaultValue("pid_graph:70E2C260")
             @Description("The id of the MPA") String id) {
         return repository.findById(id);
+    }
+
+
+    @Query("getMPAsByPage")
+    @Description("Fetches a paginated list of MPA")
+    public List<MPA> getPaginatedMPAs(
+            @Name("page")
+            @DefaultValue("1")
+            @Description("Indicates the page number. Page number must be >= 1.")
+            @Min(value = 1, message = "Page number must be >= 1.") int page,
+            @Name("size")
+            @DefaultValue("10")
+            @Description("Page size must be between 1 and 100.")
+            @Min(value = 1, message = "Page size must be between 1 and 100.")
+            @Max(value = 100, message = "Page size must be between 1 and 100.") int size) {
+        return repository.findByPage(page - 1, size);
     }
 }

@@ -2,8 +2,9 @@ package org.grnet.knowledgebase.api.graphql;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import org.eclipse.microprofile.graphql.*;
-import org.grnet.knowledgebase.api.entity.view.PropertiesStackCombined;
 import org.grnet.knowledgebase.api.entity.view.ResolvedIdentifierStack;
 import org.grnet.knowledgebase.api.repository.ResolvedIdentifierStackRepository;
 
@@ -23,10 +24,11 @@ public class ResolvedIdentifierStackResource {
     }
 
     @Query("getResolvedIdentifierStackById")
-    @Description("Fetches a paginated list of identifiers")
-    public ResolvedIdentifierStack getAuthorityById(
+    @Description("Fetches a Resolved Identifier Stack by Id")
+    public ResolvedIdentifierStack getResolvedIdentifierStackById(
             @Name("id")
-            @Description("The id of the authority") String id) {
+            @DefaultValue("pid_graph:998B7874")
+            @Description("The id of the Identifier") String id) {
         return repository.findById(id);
     }
 
@@ -34,8 +36,8 @@ public class ResolvedIdentifierStackResource {
     @Description("Fetches a list of resolved identifier stacks by Label")
     public List<ResolvedIdentifierStack> getResolvedIdentifierStackByLabel(
             @Name("label")
-            @Description("The label of the actor")
-            String label) {
+            @DefaultValue("DONA")
+            @Description("The label of the identifier") String label) {
         return repository.findByStackLabel(label);
     }
 
@@ -43,8 +45,8 @@ public class ResolvedIdentifierStackResource {
     @Description("Fetches a list of resolved identifier stacks by Actor")
     public List<ResolvedIdentifierStack> getResolvedIdentifierStackByActor(
             @Name("actor")
-            @Description("The name of the actor")
-            String actorName) {
+            @DefaultValue("Authority")
+            @Description("The name of the actor") String actorName) {
         return repository.findByActor(actorName);
     }
 
@@ -52,8 +54,8 @@ public class ResolvedIdentifierStackResource {
     @Description("Fetches a list of resolved identifier stacks by Identifiers Label")
     public List<ResolvedIdentifierStack> getResolvedIdentifierStackByLabelIdentifier(
             @Name("label")
-            @Description("The label of the Identifier")
-            String labelIdentifier) {
+            @DefaultValue("DOI")
+            @Description("The label of the Identifier") String labelIdentifier) {
         return repository.findByLabelIdentifier(labelIdentifier);
     }
 
@@ -61,19 +63,23 @@ public class ResolvedIdentifierStackResource {
     @Description("Fetches a list of resolved identifier stacks by search")
     public List<ResolvedIdentifierStack> searchResolvedIdentifierStack(
             @Name("search")
+            @DefaultValue("MPA")
             @Description("Search by actor, labelIdentifier, label") String search) {
         return repository.searchByKeyword(search);
     }
 
     @Query("getResolvedIdentifierStackPaged")
     @Description("Fetches a paginated list of resolved identifier Stack")
-    public List<ResolvedIdentifierStack> getResolvedIdentifierStackPaged(
-            @Name("Page")
+    public List<ResolvedIdentifierStack> getPaginatedResolvedIdentifierStack(
+            @Name("page")
             @DefaultValue("1")
-            @Description("Indicates the page number. Page number must be >= 1.") int page,
-            @Name("Size")
+            @Description("Indicates the page number. Page number must be >= 1.")
+            @Min(value = 1, message = "Page number must be >= 1.") int page,
+            @Name("size")
             @DefaultValue("10")
-            @Description("Page size must be between 1 and 100.") int size){
-        return repository.findByPage(page, size);
+            @Description("Page size must be between 1 and 100.")
+            @Min(value = 1, message = "Page size must be between 1 and 100.")
+            @Max(value = 100, message = "Page size must be between 1 and 100.") int size) {
+        return repository.findByPage(page - 1, size);
     }
 }

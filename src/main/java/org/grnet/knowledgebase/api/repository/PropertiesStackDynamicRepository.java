@@ -12,7 +12,6 @@ public class PropertiesStackDynamicRepository implements PanacheRepository<Prope
     public List<PropertiesStackDynamic> findByPropertyLabel(String labelProperty) {
         return find("labelProperty", labelProperty).list();
     }
-
     public List<PropertiesStackDynamic> findByPage(int page, int size) {
         return findAll().page(page, size).list();
     }

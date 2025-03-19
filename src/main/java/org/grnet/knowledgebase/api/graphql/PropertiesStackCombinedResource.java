@@ -2,8 +2,9 @@ package org.grnet.knowledgebase.api.graphql;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import org.eclipse.microprofile.graphql.*;
-import org.grnet.knowledgebase.api.entity.Authority;
 import org.grnet.knowledgebase.api.entity.view.PropertiesStackCombined;
 import org.grnet.knowledgebase.api.repository.PropertiesStackCombinedRepository;
 
@@ -23,10 +24,11 @@ public class PropertiesStackCombinedResource {
     }
 
     @Query("getPropertiesStackCombinedById")
-    @Description("Fetches a paginated list of identifiers")
-    public PropertiesStackCombined getAuthorityById(
+    @Description("Fetches a Property Stack Combination by Id")
+    public PropertiesStackCombined getPropertyStackCombinedById(
             @Name("id")
-            @Description("The id of the authority") String id) {
+            @DefaultValue("pid_graph:D9D0AD30")
+            @Description("The id of the identifier") String id) {
         return repository.findById(id);
     }
 
@@ -34,8 +36,8 @@ public class PropertiesStackCombinedResource {
     @Description("Fetches a list of combined (static, dynamic) properties by label")
     public List<PropertiesStackCombined> getPropertiesStackCombinedByLabel(
             @Name("label")
-            @Description("The label of the Property")
-            String label) {
+            @DefaultValue("Status")
+            @Description("The label of the Property") String label) {
         return repository.findByPropertyLabel(label);
     }
 
@@ -43,19 +45,23 @@ public class PropertiesStackCombinedResource {
     @Description("Fetches a list of properties stacks combined by search")
     public List<PropertiesStackCombined> searchPropertiesStackCombined(
             @Name("search")
-            @Description("Search by lodIDN, labelIdentifier, value") String search) {
+            @DefaultValue("hasProperty")
+            @Description("Search by labelProperty, lodIDN, labelIdentifier, value") String search) {
         return repository.searchByKeyword(search);
     }
 
     @Query("getPropertiesStackCombinedPaged")
     @Description("Fetches a paginated list of the combined (static, dynamic) properties")
-    public List<PropertiesStackCombined> getPropertiesStackCombinedPaged(
-            @Name("Page")
+    public List<PropertiesStackCombined> getPaginatedPropertiesStackCombines(
+            @Name("page")
             @DefaultValue("1")
-            @Description("Indicates the page number. Page number must be >= 1.") int page,
-            @Name("Size")
+            @Description("Indicates the page number. Page number must be >= 1.")
+            @Min(value = 1, message = "Page number must be >= 1.") int page,
+            @Name("size")
             @DefaultValue("10")
-            @Description("Page size must be between 1 and 100.") int size){
-        return repository.findByPage(page, size);
+            @Description("Page size must be between 1 and 100.")
+            @Min(value = 1, message = "Page size must be between 1 and 100.")
+            @Max(value = 100, message = "Page size must be between 1 and 100.") int size) {
+        return repository.findByPage(page - 1, size);
     }
 }

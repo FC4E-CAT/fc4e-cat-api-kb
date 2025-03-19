@@ -28,6 +28,7 @@ According to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) , the `Unr
 - [#4](https://github.com/FC4E-CAT/fc4e-cat-api-kb/pull/4) CAT-826: [KB] Database Setup & Implement Example Views
 - [#6](https://github.com/FC4E-CAT/fc4e-cat-api-kb/pull/6) CAT-795: Fetch Data via filter
 - [#8](https://github.com/FC4E-CAT/fc4e-cat-api-kb/pull/8) CAT-794: [KB] Fetch Data by ID for Entities and Structured Views
+- [#11](https://github.com/FC4E-CAT/fc4e-cat-api-kb/pull/11/)CAT-820: [KB] API Queries & Documentation (add default values)
 
 
 ### Fix

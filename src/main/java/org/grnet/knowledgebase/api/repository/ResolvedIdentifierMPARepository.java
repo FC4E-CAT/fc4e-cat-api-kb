@@ -12,11 +12,11 @@ public class ResolvedIdentifierMPARepository implements PanacheRepository<Resolv
     /**
      * 🔍 Find identifiers by MPA label.
      *
-     * @param labelMpa The name of the MPA (e.g., "RAID Australia").
+     * @param labelIdentifier The name of the MPA (e.g., "RAID Australia").
      * @return A list of resolved identifiers linked to this MPA.
      */
-    public List<ResolvedIdentifierMPA> findByLabel(String labelMpa) {
-        return find("labelMPA", labelMpa).list();
+    public List<ResolvedIdentifierMPA> findByLabel(String labelIdentifier) {
+        return find("labelIdentifier", labelIdentifier).list();
     }
 
     /**
