@@ -12,7 +12,6 @@ public class ResolvedIdentifierAuthorityRepository implements PanacheRepository<
     public List<ResolvedIdentifierAuthority> findByAuthorityLabel(String authorityLabel) {
         return find("label", authorityLabel).list();
     }
-
     public List<ResolvedIdentifierAuthority> findByPage(int page, int size) {
         return findAll().page(page, size).list();
     }

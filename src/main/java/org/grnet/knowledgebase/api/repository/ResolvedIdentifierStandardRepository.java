@@ -12,7 +12,6 @@ public class ResolvedIdentifierStandardRepository implements PanacheRepository<R
     public List<ResolvedIdentifierStandard> findByStandardLabel(String standardLabel) {
         return find("label", standardLabel).list();
     }
-
     public List<ResolvedIdentifierStandard> findByPage(int page, int size) {
         return findAll().page(page, size).list();
     }

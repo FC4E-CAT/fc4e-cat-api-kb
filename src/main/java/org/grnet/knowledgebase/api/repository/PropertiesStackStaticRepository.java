@@ -12,7 +12,6 @@ public class PropertiesStackStaticRepository implements PanacheRepository<Proper
     public List<PropertiesStackStatic> findByPropertyLabel(String labelProperty) {
         return find("labelProperty", labelProperty).list();
     }
-
     public List<PropertiesStackStatic> findByPage(int page, int size) {
         return findAll().page(page, size).list();
     }
