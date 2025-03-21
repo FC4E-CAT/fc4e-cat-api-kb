@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.view;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -18,13 +18,13 @@ public class ResolvedIdentifierProviderResource {
     ResolvedIdentifierProviderRepository repository;
 
     @Query("getResolvedIdentifierProviders")
-    @Description("Fetch all resolved identifier provider")
+    @Description("[view] Fetch all resolved identifier provider")
     public List<ResolvedIdentifierProvider> getResolvedIdentifierProviders() {
         return repository.listAll();
     }
 
     @Query("getResolvedIdentifierProvidersByLabel")
-    @Description("Fetches a list of resolved identifier providers by label")
+    @Description("[view] Fetches a list of resolved identifier providers by label")
     public List<ResolvedIdentifierProvider> getResolvedIdentifierProvidersByLabel(
             @Name("label")
             @DefaultValue("arXiv.org")
@@ -33,7 +33,7 @@ public class ResolvedIdentifierProviderResource {
     }
 
     @Query("getResolvedIdentifierProvidersPaged")
-    @Description("Fetches a paginated list of resolved identifier providers")
+    @Description("[view] Fetches a paginated list of resolved identifier providers")
     public List<ResolvedIdentifierProvider> getPaginatedResolvedIdentifierProviders(
             @Name("page")
             @DefaultValue("1")

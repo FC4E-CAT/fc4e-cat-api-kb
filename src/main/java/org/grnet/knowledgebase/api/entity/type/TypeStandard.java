@@ -13,20 +13,22 @@ public class TypeStandard extends PanacheEntityBase {
 
     @Id
     @Column(name = "lodTST", nullable = false)
-    @Description("Unique identifier for the entry")
+    @Description("Unique identifier for the Type Standard")
     public String lodTST;
 
     @Column(name = "IDTST")
-    @Description("The identifier code")
+    @Description("The identifier of the Type Standard")
     public Integer IDTST;
 
     @Column(name = "typeStandard")
-    @Description("The type code")
+    @Description("The name of the Type Standard")
     public String typeStandard;
 
     @Column(name = "populatedBy")
+    @Description("populatedBy")
     public String populatedBy;
 
     @Column(name = "lastTouch")
+    @Description("lastTouch")
     public String lastTouch;
 }

@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.view;
 
 import jakarta.inject.Inject;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -18,7 +18,7 @@ public class ResolvedIdentifierAuthorityResource {
     ResolvedIdentifierAuthorityRepository repository;
 
     @Query("getResolvedIdentifierAuthorities")
-    @Description("Fetches resolved identifier authority ")
+    @Description("[view] Fetches resolved identifier authority ")
     public List<ResolvedIdentifierAuthority> getResolvedIdentifierAuthorities() {
         return repository.listAll();
     }
@@ -33,7 +33,7 @@ public class ResolvedIdentifierAuthorityResource {
     }
 
     @Query("getResolvedIdentifierAuthoritiesPaged")
-    @Description("Fetches a paginated list of resolved identifier authorities")
+    @Description("[view] Fetches a paginated list of resolved identifier authorities")
     public List<ResolvedIdentifierAuthority> getPaginatedResolvedIdentifierAuthorities(
             @Name("page")
             @DefaultValue("1")

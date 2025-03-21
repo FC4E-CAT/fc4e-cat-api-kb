@@ -13,20 +13,22 @@ public class TypeScheme extends PanacheEntityBase {
 
     @Id
     @Column(name = "lodTSC", nullable = false)
-    @Description("Unique identifier for the entry")
+    @Description("Unique identifier for the Type Scheme")
     public String lodTSC;
 
     @Column(name = "IDTSC")
-    @Description("The identifier code")
+    @Description("The identifier of the Type Scheme")
     public Integer IDTSC;
 
     @Column(name = "typeScheme")
-    @Description("The type code")
+    @Description("The name of the Type Scheme")
     public String typeScheme;
 
     @Column(name = "populatedBy")
+    @Description("populatedBy")
     public String populatedBy;
 
     @Column(name = "lastTouch")
+    @Description("lastTouch")
     public String lastTouch;
 }

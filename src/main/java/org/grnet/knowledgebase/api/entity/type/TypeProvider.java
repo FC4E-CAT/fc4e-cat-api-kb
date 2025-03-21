@@ -13,26 +13,30 @@ public class TypeProvider extends PanacheEntityBase {
 
     @Id
     @Column(name = "lodTPR", nullable = false)
-    @Description("Unique identifier for the entry")
+    @Description("Unique identifier for the Type Provider")
     public String lodTPR;
 
     @Column(name = "IDTPR")
-    @Description("The identifier code")
+    @Description("The identifier of the Type Provider")
     public Integer IDTPR;
 
     @Column(name = "typeProvider")
-    @Description("The type code")
+    @Description("The label of the Type Provider")
     public String typeProvider;
 
     @Column(name = "TPR")
+    @Description("The name of the Type Provider")
     public String TPR;
 
     @Column(name = "descTPR", columnDefinition = "TEXT")
+    @Description("The description of the Type Provider")
     public String descTPR;
 
     @Column(name = "populatedBy")
+    @Description("populatedBy")
     public String populatedBy;
 
     @Column(name = "lastTouch")
+    @Description("lastTouch")
     public String lastTouch;
 }

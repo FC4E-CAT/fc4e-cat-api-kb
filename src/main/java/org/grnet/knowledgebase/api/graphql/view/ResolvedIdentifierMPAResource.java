@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.view;
 
 import jakarta.inject.Inject;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -33,7 +33,7 @@ public class ResolvedIdentifierMPAResource {
      * @return List of MPAs matching the label.
      */
     @Query("getResolvedIdentifierMPAsByLabel")
-    @Description("Fetches a list of resolved identifier MPAs by label")
+    @Description("[view] Fetches a list of resolved identifier MPAs by label")
     public List<ResolvedIdentifierMPA> getResolvedIdentifierMPAsByLabel(
             @Name("label")
             @DefaultValue("ORCID")
@@ -48,7 +48,7 @@ public class ResolvedIdentifierMPAResource {
      * @return A paginated list of MPAs.
      */
     @Query("getResolvedIdentifierMPAsPaged")
-    @Description("Fetches a paginated list of resolved identifier MPAs")
+    @Description("[view] Fetches a paginated list of resolved identifier MPAs")
     public List<ResolvedIdentifierMPA> getPaginatedResolvedIdentifierMPAs(
             @Name("page")
             @DefaultValue("1")

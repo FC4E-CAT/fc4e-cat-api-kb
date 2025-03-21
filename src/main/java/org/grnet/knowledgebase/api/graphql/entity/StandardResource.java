@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.entity;
 
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.Max;
@@ -22,7 +22,7 @@ public class StandardResource {
     }
 
     @Query("getStandardById")
-    @Description("Fetches a Standard by Id")
+    @Description("[entity] Fetches a Standard by Id")
     public Standard getStandardById(
             @Name("id")
             @DefaultValue("pid_graph:FCDAACDB")
@@ -31,7 +31,7 @@ public class StandardResource {
     }
 
     @Query("getStandardByPage")
-    @Description("Fetches a paginated list of Standards")
+    @Description("[entity] Fetches a paginated list of Standards")
     public List<Standard> getPaginatedResource(
             @Name("page")
             @DefaultValue("1")

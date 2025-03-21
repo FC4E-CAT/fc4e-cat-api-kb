@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.view;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -24,7 +24,7 @@ public class ResolvedIdentifierSchemeResource {
     }
 
     @Query("getResolvedIdentifierSchemesByLabel")
-    @Description("Fetches a list of resolved identifier scheme by label")
+    @Description("[view] Fetches a list of resolved identifier scheme by label")
     public List<ResolvedIdentifierScheme> getResolvedIdentifierSchemesByLabel(
             @Name("label")
             @DefaultValue("URN:NBN")
@@ -33,7 +33,7 @@ public class ResolvedIdentifierSchemeResource {
     }
 
     @Query("getResolvedIdentifierSchemesPaged")
-    @Description("Fetches a paginated list of resolved identifier schemes")
+    @Description("[view] Fetches a paginated list of resolved identifier schemes")
     public List<ResolvedIdentifierScheme> getPaginatedResolvedIdentifierSchemes(
             @Name("page")
             @DefaultValue("1")

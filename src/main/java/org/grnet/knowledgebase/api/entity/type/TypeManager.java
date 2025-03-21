@@ -13,20 +13,22 @@ public class TypeManager extends PanacheEntityBase {
 
     @Id
     @Column(name = "lodTMR", nullable = false)
-    @Description("Unique identifier for the entry")
+    @Description("Unique identifier for the Type Manager")
     public String lodTMR;
 
     @Column(name = "IDTMR")
-    @Description("The identifier code")
+    @Description("The identifier of the Type Manager")
     public Integer IDTMR;
 
     @Column(name = "typeManager")
-    @Description("The type code")
+    @Description("The label of the Type Manager")
     public String typeManager;
 
     @Column(name = "populatedBy")
+    @Description("populatedBy")
     public String populatedBy;
 
     @Column(name = "lastTouch")
+    @Description("lastTouch")
     public String lastTouch;
 }
