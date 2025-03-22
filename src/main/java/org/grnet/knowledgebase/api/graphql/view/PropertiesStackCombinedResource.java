@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.view;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -18,13 +18,13 @@ public class PropertiesStackCombinedResource {
     PropertiesStackCombinedRepository repository;
 
     @Query("getPropertiesStackCombined")
-    @Description("Fetches combined properties from the database.")
+    @Description("[view] Fetches combined properties from the database.")
     public List<PropertiesStackCombined> getPropertiesStackCombined() {
         return repository.listAll();
     }
 
     @Query("getPropertiesStackCombinedById")
-    @Description("Fetches a Property Stack Combination by Id")
+    @Description("[view] Fetches a Property Stack Combination by Id")
     public PropertiesStackCombined getPropertyStackCombinedById(
             @Name("id")
             @DefaultValue("pid_graph:D9D0AD30")
@@ -33,7 +33,7 @@ public class PropertiesStackCombinedResource {
     }
 
     @Query("getPropertiesStackCombinedByLabel")
-    @Description("Fetches a list of combined (static, dynamic) properties by label")
+    @Description("[view] Fetches a list of combined (static, dynamic) properties by label")
     public List<PropertiesStackCombined> getPropertiesStackCombinedByLabel(
             @Name("label")
             @DefaultValue("Status")
@@ -42,7 +42,7 @@ public class PropertiesStackCombinedResource {
     }
 
     @Query("searchPropertiesStackCombinedStack")
-    @Description("Fetches a list of properties stacks combined by search")
+    @Description("[view] Fetches a list of properties stacks combined by search")
     public List<PropertiesStackCombined> searchPropertiesStackCombined(
             @Name("search")
             @DefaultValue("hasProperty")
@@ -51,7 +51,7 @@ public class PropertiesStackCombinedResource {
     }
 
     @Query("getPropertiesStackCombinedPaged")
-    @Description("Fetches a paginated list of the combined (static, dynamic) properties")
+    @Description("[view] Fetches a paginated list of the combined (static, dynamic) properties")
     public List<PropertiesStackCombined> getPaginatedPropertiesStackCombines(
             @Name("page")
             @DefaultValue("1")

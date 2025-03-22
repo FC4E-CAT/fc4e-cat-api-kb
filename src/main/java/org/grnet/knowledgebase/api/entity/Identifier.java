@@ -20,30 +20,34 @@ public class Identifier extends PanacheEntityBase {
     public String lodIDN;
 
     @Column(name = "IDIDN")
-    @Description("The identifier code")
+    @Description("The identifier of the Identifier")
     public Integer IDIDN;
 
     @Column(name = "IDN")
-    @Description("The identifier code")
+    @Description("The identifier of the Identifier")
     public String IDN;
 
     @Column(name = "labelIdentifier")
-    @Description("A label for the identifier")
+    @Description("The label for the Identifier")
     public String labelIdentifier;
 
     @Column(name = "descIdentifier", columnDefinition = "TEXT")
-    @Description("A description for the identifier")
+    @Description("The description for the identifier")
     public String descIdentifier;
 
     @Column(name = "lodIND_V")
+    @Description("The version of the Identifier")
     public String lodIND_V;
 
     @Column(name = "startDate")
+    @Description("startDate")
     public ZonedDateTime startDate;
 
     @Column(name = "populatedBy")
+    @Description("populatedBy")
     public String populatedBy;
 
     @Column(name = "lastTouch")
+    @Description("lastTouch")
     public String lastTouch;
 }

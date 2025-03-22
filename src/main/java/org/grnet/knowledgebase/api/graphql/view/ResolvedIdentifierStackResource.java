@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.view;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -51,7 +51,7 @@ public class ResolvedIdentifierStackResource {
     }
 
     @Query("getResolvedIdentifierStackByLabelIdentifier")
-    @Description("Fetches a list of resolved identifier stacks by Identifiers Label")
+    @Description("[view] Fetches a list of resolved identifier stacks by Identifiers Label")
     public List<ResolvedIdentifierStack> getResolvedIdentifierStackByLabelIdentifier(
             @Name("label")
             @DefaultValue("DOI")
@@ -60,7 +60,7 @@ public class ResolvedIdentifierStackResource {
     }
 
     @Query("searchResolvedIdentifierStack")
-    @Description("Fetches a list of resolved identifier stacks by search")
+    @Description("[view] Fetches a list of resolved identifier stacks by search")
     public List<ResolvedIdentifierStack> searchResolvedIdentifierStack(
             @Name("search")
             @DefaultValue("MPA")
@@ -69,7 +69,7 @@ public class ResolvedIdentifierStackResource {
     }
 
     @Query("getResolvedIdentifierStackPaged")
-    @Description("Fetches a paginated list of resolved identifier Stack")
+    @Description("[view] Fetches a paginated list of resolved identifier Stack")
     public List<ResolvedIdentifierStack> getPaginatedResolvedIdentifierStack(
             @Name("page")
             @DefaultValue("1")

@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.view;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -24,7 +24,7 @@ public class PropertiesStackDynamicResource {
     }
 
     @Query("getPropertiesStackDynamicByLabel")
-    @Description("Fetches a list of dynamic properties by label")
+    @Description("[view] Fetches a list of dynamic properties by label")
     public List<PropertiesStackDynamic> getPropertiesStackDynamicByLabel(
             @Name("label")
             @DefaultValue("Managers")
@@ -33,7 +33,7 @@ public class PropertiesStackDynamicResource {
     }
 
     @Query("getPropertiesStackDynamicPaged")
-    @Description("Fetches a paginated list of dynamic properties")
+    @Description("[view] Fetches a paginated list of dynamic properties")
     public List<PropertiesStackDynamic> getPaginatedPropertiesStackDynamic(
             @Name("page")
             @DefaultValue("1")

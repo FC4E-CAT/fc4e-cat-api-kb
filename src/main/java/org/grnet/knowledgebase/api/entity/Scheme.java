@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import org.eclipse.microprofile.graphql.Description;
 
 import java.time.ZonedDateTime;
 
@@ -14,33 +15,40 @@ public class Scheme extends PanacheEntityBase {
 
     @Id
     @Column(name = "lodSCH", nullable = false)
+    @Description("Unique identifier for the Scheme")
     public String lodSCH;
 
     @Column(name = "IDSCH")
+    @Description("The identifier of the Scheme")
     public Integer IDSCH;
 
     @Column(name = "SCH")
-    public String SCH;
+    @Description("The name of the Scheme") public String SCH;
 
     @Column(name = "labelScheme")
-    public String labelScheme;
+    @Description("The label of the Scheme") public String labelScheme;
 
     @Column(name = "descScheme", columnDefinition = "TEXT")
-    public String descScheme;
+    @Description("The description of the Scheme") public String descScheme;
 
     @Column(name = "lodTSC", nullable = false)
+    @Description("The unique identifier of the Type Scheme")
     public String lodTSC;
 
     @Column(name = "lodSCH_V")
+    @Description("The version of the Scheme")
     public String lodSCH_V;
 
 
     @Column(name = "startDate")
+    @Description("startDate")
     public ZonedDateTime startDate;
 
     @Column(name = "populatedBy")
+    @Description("populatedBy")
     public String populatedBy;
 
     @Column(name = "lastTouch")
+    @Description("lastTouch")
     public String lastTouch;
 }

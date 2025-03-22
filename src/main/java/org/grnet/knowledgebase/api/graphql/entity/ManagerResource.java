@@ -1,38 +1,39 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.entity;
 
+import io.quarkus.panache.common.Page;
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.eclipse.microprofile.graphql.*;
-import org.grnet.knowledgebase.api.entity.Provider;
-import org.grnet.knowledgebase.api.repository.ProviderRepository;
+import org.grnet.knowledgebase.api.entity.Manager;
+import org.grnet.knowledgebase.api.repository.ManagerRepository;
 
 import java.util.List;
 
 @GraphQLApi
-public class ProviderResource {
+public class ManagerResource {
 
     @Inject
-    ProviderRepository repository;
+    ManagerRepository repository;
 
-    @Query("getProviders")
-    @Description("Get All Providers")
-    public List<Provider> getProviders() {
+    @Query("getManagers")
+    @Description("Get All Managers")
+    public List<Manager> getAuthorities() {
         return repository.listAll();
     }
 
-    @Query("getProviderById")
-    @Description("Fetches a Provider by Id")
-    public Provider getProvidersById(
+    @Query("getManagerById")
+    @Description("[entity] Fetches a Manager by Id")
+    public Manager getManagerById(
             @Name("id")
-            @DefaultValue("pid_graph:3C391CE0")
-            @Description("The id of the provider") String id) {
+            @DefaultValue("pid_graph:2FBC5B5F")
+            @Description("The id of the manager") String id) {
         return repository.findById(id);
     }
 
-    @Query("getProvidersByPage")
-    @Description("Fetches a paginated list of identifiers")
-    public List<Provider> getPaginatedProviders(
+    @Query("getManagerByPage")
+    @Description("[entity] Fetches a paginated list of Managers")
+    public List<Manager> getPaginatedManagers(
             @Name("page")
             @DefaultValue("1")
             @Description("Indicates the page number. Page number must be >= 1.")

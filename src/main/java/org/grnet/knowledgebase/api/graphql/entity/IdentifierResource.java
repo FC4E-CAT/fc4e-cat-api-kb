@@ -1,38 +1,38 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.entity;
 
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.eclipse.microprofile.graphql.*;
-import org.grnet.knowledgebase.api.entity.Scheme;
-import org.grnet.knowledgebase.api.repository.SchemeRepository;
+import org.grnet.knowledgebase.api.entity.Identifier;
+import org.grnet.knowledgebase.api.repository.IdentifierRepository;
 
 import java.util.List;
 
 @GraphQLApi
-public class SchemeResource {
+public class IdentifierResource {
 
     @Inject
-    SchemeRepository repository;
+    IdentifierRepository repository;
 
-    @Query("getSchemes")
-    @Description("Get All Schemes")
-    public List<Scheme> getSchemes() {
+    @Query("getIdentifiers")
+    @Description("[entity] Fetches All Identifiers")
+    public List<Identifier> getIdentifiers() {
         return repository.listAll();
     }
 
-    @Query("getSchemeById")
-    @Description("Fetches a Scheme by Id")
-    public Scheme getSchemeById(
+    @Query("getIdentifierById")
+    @Description("[entity] Fetches an Identifier by Id")
+    public Identifier getIdentifierById(
             @Name("id")
-            @DefaultValue("pid_graph:466E3789")
-            @Description("The id of the scheme") String id) {
+            @DefaultValue("pid_graph:03A715EA1")
+            @Description("The id of the identifier") String id) {
         return repository.findById(id);
     }
 
-    @Query("getStandardByPage")
-    @Description("Fetches a paginated list of Scheme")
-    public List<Scheme> getPaginatedSchemes(
+    @Query("getIdentifiersByPage")
+    @Description("[entity] Fetches a paginated list of identifiers")
+    public List<Identifier> getPaginatedIdentifiers(
             @Name("page")
             @DefaultValue("1")
             @Description("Indicates the page number. Page number must be >= 1.")

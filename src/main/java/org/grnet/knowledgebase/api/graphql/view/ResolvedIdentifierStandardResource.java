@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.view;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -18,13 +18,13 @@ public class ResolvedIdentifierStandardResource {
     ResolvedIdentifierStandardRepository repository;
 
     @Query("getResolvedIdentifierStandards")
-    @Description("Fetches resolved identifier standard ")
+    @Description("[view] Fetches resolved identifier standard ")
     public List<ResolvedIdentifierStandard> getResolvedIdentifierStandards() {
         return repository.listAll();
     }
 
     @Query("getResolvedIdentifierStandardsByLabel")
-    @Description("Fetches resolved identifier standard from the database by label.")
+    @Description("[view] Fetches resolved identifier standard from the database by label.")
     public List<ResolvedIdentifierStandard> getResolvedIdentifierStandardsByLabel(
             @Name("label")
             @DefaultValue("Bibcode Published Schema")
@@ -33,7 +33,7 @@ public class ResolvedIdentifierStandardResource {
     }
 
     @Query("getResolvedIdentifierStandardsPaged")
-    @Description("Fetches a paginated list of resolved identifier standard")
+    @Description("[view] Fetches a paginated list of resolved identifier standard")
     public List<ResolvedIdentifierStandard> getPaginatedResolvedIdentifierStandards(
             @Name("page")
             @DefaultValue("1")

@@ -1,39 +1,38 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.entity;
 
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.eclipse.microprofile.graphql.*;
-import org.grnet.knowledgebase.api.entity.MPA;
-import org.grnet.knowledgebase.api.repository.MPARepository;
+import org.grnet.knowledgebase.api.entity.StandardsBody;
+import org.grnet.knowledgebase.api.repository.StandardsBodyRepository;
 
 import java.util.List;
 
 @GraphQLApi
-public class MPAResource {
+public class StandardBodyResource {
 
     @Inject
-    MPARepository repository;
+    StandardsBodyRepository repository;
 
-    @Query("getMPAs")
-    @Description("Get All MPA")
-    public List<MPA> getMPAs() {
+    @Query("getStandardsBody")
+    @Description("Get All StandardsBodies")
+    public List<StandardsBody> getStandardsBodys() {
         return repository.listAll();
     }
 
-    @Query("getMPAById")
-    @Description("Fetches a MPA by Id")
-    public MPA getMPAById(
+    @Query("getStandardBodyById")
+    @Description("[entity] Fetches a StandardBody by Id")
+    public StandardsBody getStandardBodyById(
             @Name("id")
-            @DefaultValue("pid_graph:70E2C260")
-            @Description("The id of the MPA") String id) {
+            @DefaultValue("pid_graph:FCDAACDB")
+            @Description("The id of the StandardsBody") String id) {
         return repository.findById(id);
     }
 
-
-    @Query("getMPAsByPage")
-    @Description("Fetches a paginated list of MPA")
-    public List<MPA> getPaginatedMPAs(
+    @Query("getStandardsBodyByPage")
+    @Description("[entity] Fetches a paginated list of StandardsBodies")
+    public List<StandardsBody> getPaginatedResource(
             @Name("page")
             @DefaultValue("1")
             @Description("Indicates the page number. Page number must be >= 1.")

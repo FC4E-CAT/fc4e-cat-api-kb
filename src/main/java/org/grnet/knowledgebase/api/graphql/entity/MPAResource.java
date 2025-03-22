@@ -1,38 +1,39 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.entity;
 
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.eclipse.microprofile.graphql.*;
-import org.grnet.knowledgebase.api.entity.Authority;
-import org.grnet.knowledgebase.api.repository.AuthorityRepository;
+import org.grnet.knowledgebase.api.entity.MPA;
+import org.grnet.knowledgebase.api.repository.MPARepository;
 
 import java.util.List;
 
 @GraphQLApi
-public class AuthorityResource {
+public class MPAResource {
 
     @Inject
-    AuthorityRepository repository;
+    MPARepository repository;
 
-    @Query("getAuthorities")
-    @Description("Fetches All Authorities")
-    public List<Authority> getAuthorities() {
+    @Query("getMPAs")
+    @Description("Get All MPA")
+    public List<MPA> getMPAs() {
         return repository.listAll();
     }
 
-    @Query("getAuthorityById")
-    @Description("Fetches an Authority by Id")
-    public Authority getAuthorityById(
+    @Query("getMPAById")
+    @Description("[entity] Fetches a MPA by Id")
+    public MPA getMPAById(
             @Name("id")
-            @DefaultValue("pid_graph:00C7B7CF")
-            @Description("The id of the authority") String id) {
+            @DefaultValue("pid_graph:70E2C260")
+            @Description("The id of the MPA") String id) {
         return repository.findById(id);
     }
 
-    @Query("getAuthorityByPage")
-    @Description("Fetches a paginated list of Authorities")
-    public List<Authority> getPaginatedAuthorities(
+
+    @Query("getMPAsByPage")
+    @Description("[entity] Fetches a paginated list of MPA")
+    public List<MPA> getPaginatedMPAs(
             @Name("page")
             @DefaultValue("1")
             @Description("Indicates the page number. Page number must be >= 1.")

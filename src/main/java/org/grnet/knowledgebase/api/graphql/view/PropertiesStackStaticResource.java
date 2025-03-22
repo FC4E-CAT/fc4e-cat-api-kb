@@ -1,4 +1,4 @@
-package org.grnet.knowledgebase.api.graphql;
+package org.grnet.knowledgebase.api.graphql.view;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -24,7 +24,7 @@ public class PropertiesStackStaticResource {
     }
 
     @Query("getPropertiesStackStaticByLabel")
-    @Description("Fetches a list of static properties by label")
+    @Description("[view] Fetches a list of static properties by label")
     public List<PropertiesStackStatic> getPropertiesStackStaticByLabel(
             @Name("label")
             @DefaultValue("Resolution Topology")
@@ -33,7 +33,7 @@ public class PropertiesStackStaticResource {
     }
 
     @Query("getPropertiesStackStaticPaged")
-    @Description("Fetches a paginated list of static properties")
+    @Description("[view] Fetches a paginated list of static properties")
     public List<PropertiesStackStatic> getPaginatedPropertiesStackStatic(
             @Name("page")
             @DefaultValue("1")
