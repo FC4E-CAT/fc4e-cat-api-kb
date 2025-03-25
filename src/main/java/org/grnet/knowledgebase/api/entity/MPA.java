@@ -20,11 +20,11 @@ public class MPA extends PanacheEntityBase {
 
     @Column(name = "IDMPA")
     @Description("The identifier code")
-    public Integer IDMPA;
+    public Integer idMPA;
 
     @Column(name = "MPA")
-    @Description("The identifier of the Multi-Provider-Agency (MPA)")
-    public String MPA;
+    @Description("The name of the Multi-Provider-Agency (MPA)")
+    public String nameMPA;
 
     @Column(name = "labelMPA")
     @Description("The label of the Multi-Provider-Agency (MPA)")

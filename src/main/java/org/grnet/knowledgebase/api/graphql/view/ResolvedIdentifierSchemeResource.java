@@ -18,7 +18,7 @@ public class ResolvedIdentifierSchemeResource {
     ResolvedIdentifierSchemeRepository repository;
 
     @Query("getResolvedIdentifierSchemes")
-    @Description("Fetch all resolved identifier schemes")
+    @Description("[view] Fetch all resolved identifier schemes")
     public List<ResolvedIdentifierScheme> getResolvedIdentifierSchemes() {
         return repository.listAll();
     }

@@ -18,13 +18,13 @@ public class ResolvedIdentifierStackResource {
     ResolvedIdentifierStackRepository repository;
 
     @Query("getResolvedIdentifierStack")
-    @Description("Fetches resolved identifier stack ")
+    @Description("[view] Fetches resolved identifier stack ")
     public List<ResolvedIdentifierStack> getResolvedIdentifierStack() {
         return repository.listAll();
     }
 
     @Query("getResolvedIdentifierStackById")
-    @Description("Fetches a Resolved Identifier Stack by Id")
+    @Description("[view] Fetches a Resolved Identifier Stack by Id")
     public ResolvedIdentifierStack getResolvedIdentifierStackById(
             @Name("id")
             @DefaultValue("pid_graph:998B7874")
@@ -33,7 +33,7 @@ public class ResolvedIdentifierStackResource {
     }
 
     @Query("getResolvedIdentifierStackByLabel")
-    @Description("Fetches a list of resolved identifier stacks by Label")
+    @Description("[view] Fetches a list of resolved identifier stacks by Label")
     public List<ResolvedIdentifierStack> getResolvedIdentifierStackByLabel(
             @Name("label")
             @DefaultValue("DONA")
@@ -42,7 +42,7 @@ public class ResolvedIdentifierStackResource {
     }
 
     @Query("getResolvedIdentifierStackByActor")
-    @Description("Fetches a list of resolved identifier stacks by Actor")
+    @Description("[view] Fetches a list of resolved identifier stacks by Actor")
     public List<ResolvedIdentifierStack> getResolvedIdentifierStackByActor(
             @Name("actor")
             @DefaultValue("Authority")

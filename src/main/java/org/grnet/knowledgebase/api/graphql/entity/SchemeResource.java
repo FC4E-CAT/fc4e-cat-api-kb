@@ -16,7 +16,7 @@ public class SchemeResource {
     SchemeRepository repository;
 
     @Query("getSchemes")
-    @Description("Get All Schemes")
+    @Description("[entity] Get All Schemes")
     public List<Scheme> getSchemes() {
         return repository.listAll();
     }

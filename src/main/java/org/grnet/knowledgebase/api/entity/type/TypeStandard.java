@@ -18,7 +18,7 @@ public class TypeStandard extends PanacheEntityBase {
 
     @Column(name = "IDTST")
     @Description("The identifier of the Type Standard")
-    public Integer IDTST;
+    public Integer idTST;
 
     @Column(name = "typeStandard")
     @Description("The name of the Type Standard")

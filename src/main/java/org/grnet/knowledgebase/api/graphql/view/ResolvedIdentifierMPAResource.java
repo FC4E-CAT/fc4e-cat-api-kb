@@ -22,7 +22,7 @@ public class ResolvedIdentifierMPAResource {
      * @return List of all MPAs.
      */
     @Query("getResolvedIdentifierMPAs")
-    @Description("Fetch all resolved identifier mpas")
+    @Description("[view] Fetch all resolved identifier mpas")
     public List<ResolvedIdentifierMPA> getResolvedIdentifierMPAs() {
         return repository.listAll();
     }

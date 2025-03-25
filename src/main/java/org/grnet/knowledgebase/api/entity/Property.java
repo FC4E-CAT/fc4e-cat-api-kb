@@ -20,7 +20,7 @@ public class Property extends PanacheEntityBase {
     public String lodPRP;
 
     @Column(name = "IDTPR")
-    public Integer IDTPR;
+    public Integer idTPR;
 
     @Column(name = "labelProperty")
     @Description("The label of the Property")
@@ -39,12 +39,12 @@ public class Property extends PanacheEntityBase {
     public String alternateIdentifier;
 
     @Column(name = "IDPRP_P")
-    @Description("The parent of the id if the Property")
-    public String IDPRP_P;
+    @Description("The parent of the Property")
+    public String parentProperty;
 
     @Column(name = "IDPRP_V")
     @Description("The version of the id of the Property")
-    public String IDPRP_V;
+    public String version;
 
     @Column(name = "lodTPR")
     @Description("The unique identifier of the Type Property")

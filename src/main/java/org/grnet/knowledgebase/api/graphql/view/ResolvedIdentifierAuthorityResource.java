@@ -24,7 +24,7 @@ public class ResolvedIdentifierAuthorityResource {
     }
 
     @Query("getResolvedIdentifierAuthoritiesByLabel")
-    @Description("Fetches a list of resolved identifier authorities by label")
+    @Description("[view] Fetches a list of resolved identifier authorities by label")
     public List<ResolvedIdentifierAuthority> getResolvedIdentifierAuthoritiesByLabel(
             @Name("label")
             @DefaultValue("DONA")

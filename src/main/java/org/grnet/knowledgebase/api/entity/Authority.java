@@ -18,11 +18,11 @@ public class Authority extends PanacheEntityBase {
 
     @Column(name = "IDAUT")
     @Description("The identifier of the Authority")
-    public Integer IDAUT;
+    public Integer idAuthority;
 
     @Column(name = "AUT")
     @Description("The name of the Authority")
-    public String AUT;
+    public String nameAuthority;
 
     @Column(name = "labelAuthority")
     @Description("The label of the Authority")

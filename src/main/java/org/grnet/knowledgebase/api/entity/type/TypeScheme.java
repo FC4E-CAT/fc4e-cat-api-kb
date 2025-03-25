@@ -18,7 +18,7 @@ public class TypeScheme extends PanacheEntityBase {
 
     @Column(name = "IDTSC")
     @Description("The identifier of the Type Scheme")
-    public Integer IDTSC;
+    public Integer idTSC;
 
     @Column(name = "typeScheme")
     @Description("The name of the Type Scheme")

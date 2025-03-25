@@ -18,7 +18,7 @@ public class PropertiesStackStaticResource {
     PropertiesStackStaticRepository repository;
 
     @Query("getPropertiesStackStatic")
-    @Description("Fetches static properties from the database.")
+    @Description("[view] Fetches static properties from the database.")
     public List<PropertiesStackStatic> getPropertiesStackStatic() {
         return repository.listAll();
     }

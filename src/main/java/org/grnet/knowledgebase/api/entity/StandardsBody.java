@@ -19,11 +19,11 @@ public class StandardsBody implements Serializable {
 
     @Column(name = "IDSTB")
     @Description("The identifier of the StandardsBody")
-    public Integer IDSTB;
+    public Integer idSTB;
 
     @Column(name = "STB")
     @Description("The name of the StandardsBody")
-    public String STB;
+    public String nameSTB;
 
     @Column(name = "labelStandardsBody")
     @Description("The label of the StandardsBody")
@@ -34,8 +34,8 @@ public class StandardsBody implements Serializable {
     public String descStandardsBody;
 
     @Column(name = "lodSTB_V")
-    @Description("The description of the StandardsBody")
-    public String lodSTB_V;
+    @Description("The version of the StandardsBody")
+    public String version;
 
     @Column(name = "populatedBy")
     @Description("populatedBy")

@@ -1,6 +1,5 @@
 package org.grnet.knowledgebase.api.graphql.entity;
 
-import io.quarkus.panache.common.Page;
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -17,7 +16,7 @@ public class ManagerResource {
     ManagerRepository repository;
 
     @Query("getManagers")
-    @Description("Get All Managers")
+    @Description("[entity] Get All Managers")
     public List<Manager> getAuthorities() {
         return repository.listAll();
     }

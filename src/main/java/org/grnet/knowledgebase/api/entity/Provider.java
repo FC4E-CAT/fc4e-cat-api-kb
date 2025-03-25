@@ -20,11 +20,11 @@ public class Provider extends PanacheEntityBase {
     public String lodPRV;
 
     @Column(name = "IDPRV")
-    public Integer IDPRV;
+    public Integer idPRV;
 
     @Column(name = "PRV")
     @Description("The identifier of the Provider")
-    public String PRV;
+    public String nameProvider;
 
     @Column(name = "labelProvider")
     @Description("The label of the Provider")
@@ -40,11 +40,11 @@ public class Provider extends PanacheEntityBase {
 
     @Column(name = "lodPRV_V")
     @Description("The version of the Provider")
-    public String lodPRV_V;
+    public String version;
 
     @Column(name = "Country", columnDefinition = "TEXT")
     @Description("The country of the Provider")
-    public String Country;
+    public String country;
 
     @Column(name = "startDate")
     @Description("startDate")

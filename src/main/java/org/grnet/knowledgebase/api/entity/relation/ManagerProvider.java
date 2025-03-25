@@ -18,6 +18,7 @@ import org.grnet.knowledgebase.api.entity.Provider;
 public class ManagerProvider extends PanacheEntityBase {
 
     @EmbeddedId
+    @Description("The combined ID of the Manager-Provider relation")
     public ManagerProviderId id;
 
     @ManyToOne

@@ -21,11 +21,11 @@ public class Identifier extends PanacheEntityBase {
 
     @Column(name = "IDIDN")
     @Description("The identifier of the Identifier")
-    public Integer IDIDN;
+    public Integer idIdentifier;
 
     @Column(name = "IDN")
-    @Description("The identifier of the Identifier")
-    public String IDN;
+    @Description("The name of the Identifier")
+    public String nameIdentifier;
 
     @Column(name = "labelIdentifier")
     @Description("The label for the Identifier")
@@ -37,7 +37,7 @@ public class Identifier extends PanacheEntityBase {
 
     @Column(name = "lodIND_V")
     @Description("The version of the Identifier")
-    public String lodIND_V;
+    public String version;
 
     @Column(name = "startDate")
     @Description("startDate")

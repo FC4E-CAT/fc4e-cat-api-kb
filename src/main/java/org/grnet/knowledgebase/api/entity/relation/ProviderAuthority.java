@@ -12,6 +12,7 @@ import org.grnet.knowledgebase.api.entity.Provider;
 public class ProviderAuthority extends PanacheEntityBase {
 
     @EmbeddedId
+    @Description("The combined ID of the Provider-Authority relation")
     public ProviderAuthorityId id;
 
     @ManyToOne
