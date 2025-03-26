@@ -2,6 +2,7 @@ package org.grnet.knowledgebase.api.entity.relation;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import org.eclipse.microprofile.graphql.Description;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,12 +11,15 @@ import java.util.Objects;
 public class IdentifierSchemeStandardId implements Serializable {
 
     @Column(name = "lodIDN")
+    @Description("The unique identifier of Identifier")
     private String lodIDN;
 
     @Column(name = "lodSCH")
+    @Description("The unique identifier of Scheme")
     private String lodSCH;
 
     @Column(name = "lodSTD")
+    @Description("The unique identifier of Standard")
     private String lodSTD;
 
     public IdentifierSchemeStandardId() {}

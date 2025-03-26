@@ -5,17 +5,21 @@ import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import org.eclipse.microprofile.graphql.Description;
 
 @Embeddable
 public class ManagerProviderId implements Serializable {
 
     @Column(name = "lodMAN")
+    @Description("The unique identifier of Manager")
     private String lodMAN;
 
     @Column(name = "lod_PRV")
+    @Description("The unique identifier of Provider")
     private String lodPRV;
 
     @Column(name = "lod_IDN")
+    @Description("The unique identifier of Identifier")
     private String lodIDN;
 
     public ManagerProviderId() {}

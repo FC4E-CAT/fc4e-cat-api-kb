@@ -18,7 +18,7 @@ public class PropertiesStackDynamicResource {
     PropertiesStackDynamicRepository repository;
 
     @Query("getPropertiesStackDynamic")
-    @Description("Fetches properties from the database.")
+    @Description("[view] Fetches properties from the database.")
     public List<PropertiesStackDynamic> getPropertiesStackDynamic() {
         return repository.listAll();
     }

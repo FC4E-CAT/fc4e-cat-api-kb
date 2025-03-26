@@ -20,18 +20,19 @@ public class Standard extends PanacheEntityBase {
 
     @Column(name = "IDSTD")
     @Description("The identifier of the Standard")
-    public Integer IDSTD;
+    public Integer idSTD;
 
     @Column(name = "STD")
     @Description("The name of the Standard")
-    public String STD;
+    public String nameSTD;
 
     @Column(name = "labelStandard")
     @Description("The label of the Standard")
     public String labelStandard;
 
     @Column(name = "descStandard", columnDefinition = "TEXT")
-    @Description("The description of the Standard") public String descStandard;
+    @Description("The description of the Standard")
+    public String descStandard;
 
     @Column(name = "lodTST", nullable = false)
     @Description("The unique identifier of the Type Standard")

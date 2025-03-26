@@ -30,5 +30,6 @@ public class PropertiesStackCombined {
     private String labelProperty;
 
     @Column(name = "Value_")
+    @Description("The value")
     private String value;
 }

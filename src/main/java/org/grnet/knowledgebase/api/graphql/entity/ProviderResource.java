@@ -16,7 +16,7 @@ public class ProviderResource {
     ProviderRepository repository;
 
     @Query("getProviders")
-    @Description("Get All Providers")
+    @Description("[entity] Get All Providers")
     public List<Provider> getProviders() {
         return repository.listAll();
     }

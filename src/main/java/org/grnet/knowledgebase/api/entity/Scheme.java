@@ -20,16 +20,19 @@ public class Scheme extends PanacheEntityBase {
 
     @Column(name = "IDSCH")
     @Description("The identifier of the Scheme")
-    public Integer IDSCH;
+    public Integer idSCH;
 
     @Column(name = "SCH")
-    @Description("The name of the Scheme") public String SCH;
+    @Description("The name of the Scheme")
+    public String nameSCH;
 
     @Column(name = "labelScheme")
-    @Description("The label of the Scheme") public String labelScheme;
+    @Description("The label of the Scheme")
+    public String labelScheme;
 
     @Column(name = "descScheme", columnDefinition = "TEXT")
-    @Description("The description of the Scheme") public String descScheme;
+    @Description("The description of the Scheme")
+    public String descScheme;
 
     @Column(name = "lodTSC", nullable = false)
     @Description("The unique identifier of the Type Scheme")
@@ -37,7 +40,7 @@ public class Scheme extends PanacheEntityBase {
 
     @Column(name = "lodSCH_V")
     @Description("The version of the Scheme")
-    public String lodSCH_V;
+    public String version;
 
 
     @Column(name = "startDate")

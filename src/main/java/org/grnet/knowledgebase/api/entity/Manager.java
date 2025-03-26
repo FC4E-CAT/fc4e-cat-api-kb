@@ -20,7 +20,7 @@ public class Manager extends PanacheEntityBase {
 
     @Column(name = "MAN")
     @Description("The name of the Manager")
-    public String MAN;
+    public String nameManager;
 
     @Column(name = "labelManager")
     @Description("The label of the Manager")
@@ -32,15 +32,15 @@ public class Manager extends PanacheEntityBase {
 
     @Column(name = "lodMAN_V")
     @Description("The version of the Manager")
-    public String lodMAN_V;
+    public String version;
 
     @Column(name = "Certification", columnDefinition = "TEXT")
     @Description("The certification of the Manager")
-    public String Certification;
+    public String certification;
 
     @Column(name = "Country", columnDefinition = "TEXT")
     @Description("The country of the Manager")
-    public String Country;
+    public String country;
 
     @Column(name = "startDate")
     @Description("startDate")

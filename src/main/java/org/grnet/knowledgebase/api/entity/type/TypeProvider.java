@@ -18,7 +18,7 @@ public class TypeProvider extends PanacheEntityBase {
 
     @Column(name = "IDTPR")
     @Description("The identifier of the Type Provider")
-    public Integer IDTPR;
+    public Integer idTPR;
 
     @Column(name = "typeProvider")
     @Description("The label of the Type Provider")
@@ -26,7 +26,7 @@ public class TypeProvider extends PanacheEntityBase {
 
     @Column(name = "TPR")
     @Description("The name of the Type Provider")
-    public String TPR;
+    public String nameTrp;
 
     @Column(name = "descTPR", columnDefinition = "TEXT")
     @Description("The description of the Type Provider")

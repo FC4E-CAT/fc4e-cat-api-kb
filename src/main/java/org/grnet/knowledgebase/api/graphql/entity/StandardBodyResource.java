@@ -16,7 +16,7 @@ public class StandardBodyResource {
     StandardsBodyRepository repository;
 
     @Query("getStandardsBody")
-    @Description("Get All StandardsBodies")
+    @Description("[entity] Get All StandardsBodies")
     public List<StandardsBody> getStandardsBodys() {
         return repository.listAll();
     }

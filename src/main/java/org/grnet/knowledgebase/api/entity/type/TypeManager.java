@@ -18,7 +18,7 @@ public class TypeManager extends PanacheEntityBase {
 
     @Column(name = "IDTMR")
     @Description("The identifier of the Type Manager")
-    public Integer IDTMR;
+    public Integer idTMR;
 
     @Column(name = "typeManager")
     @Description("The label of the Type Manager")

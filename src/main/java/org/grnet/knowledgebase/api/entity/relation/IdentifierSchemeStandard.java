@@ -12,6 +12,7 @@ import org.grnet.knowledgebase.api.entity.Standard;
 public class IdentifierSchemeStandard extends PanacheEntityBase {
 
     @EmbeddedId
+    @Description("The combined ID of the Identifier-Scheme-Standard relation")
     private IdentifierSchemeStandardId id;
 
     @ManyToOne
@@ -31,13 +32,13 @@ public class IdentifierSchemeStandard extends PanacheEntityBase {
 
     @Column(name = "IDN")
     @Description("The name of the Identifier")
-    public String IDN;
+    public String nameIdn;
     @Column(name = "SCH")
     @Description("The name of the Scheme")
-    public String SCH;
+    public String nameSch;
     @Column(name = "STD")
     @Description("The name of the Standard")
-    public String STD;
+    public String nameStd;
 
     @Column(name = "populatedBy")
     @Description("populatedBy")

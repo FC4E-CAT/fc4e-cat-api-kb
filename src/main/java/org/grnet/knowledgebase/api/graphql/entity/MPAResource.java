@@ -16,7 +16,7 @@ public class MPAResource {
     MPARepository repository;
 
     @Query("getMPAs")
-    @Description("Get All MPA")
+    @Description("[entity] Get All MPA")
     public List<MPA> getMPAs() {
         return repository.listAll();
     }

@@ -10,6 +10,7 @@ import org.grnet.knowledgebase.api.entity.StandardsBody;
 @Table(name = "k_Standard_StandardsBody")
 public class StandardStandardsBody extends PanacheEntityBase {
     @EmbeddedId
+    @Description("The combined ID of the Standard-StandardsBody relation")
     public StandardStandardsBodyId id;
 
     @ManyToOne

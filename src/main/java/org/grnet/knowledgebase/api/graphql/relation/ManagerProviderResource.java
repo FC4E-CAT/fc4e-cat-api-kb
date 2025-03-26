@@ -1,38 +1,30 @@
-package org.grnet.knowledgebase.api.graphql.entity;
+package org.grnet.knowledgebase.api.graphql.relation;
 
 import jakarta.inject.Inject;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import org.eclipse.microprofile.graphql.*;
-import org.grnet.knowledgebase.api.entity.Standard;
-import org.grnet.knowledgebase.api.repository.StandardRepository;
+import org.grnet.knowledgebase.api.entity.relation.ManagerProvider;
+import org.grnet.knowledgebase.api.repository.ManagerProviderRepository;
 
 import java.util.List;
 
 @GraphQLApi
-public class StandardResource {
+public class ManagerProviderResource {
 
     @Inject
-    StandardRepository repository;
+    ManagerProviderRepository repository;
 
-    @Query("getStandards")
-    @Description("[entity] Get All Standards")
-    public List<Standard> getStandards() {
+    @Query("getAllManagerProviders")
+    @Description("[relation] Fetches All Manager Providers")
+    //@RolesAllowed({"admin"})
+    public List<ManagerProvider> getAllManagerProviders() {
         return repository.listAll();
     }
 
-    @Query("getStandardById")
-    @Description("[entity] Fetches a Standard by Id")
-    public Standard getStandardById(
-            @Name("id")
-            @DefaultValue("pid_graph:FCDAACDB")
-            @Description("The id of the standard") String id) {
-        return repository.findById(id);
-    }
-
-    @Query("getStandardByPage")
-    @Description("[entity] Fetches a paginated list of Standards")
-    public List<Standard> getPaginatedResource(
+    @Query("getAllManagerProvidersPaged")
+    @Description("[relation] Fetches a paginated list of Manager Providers")
+    public List<ManagerProvider> getPaginatedResolvedIdentifierAuthorities(
             @Name("page")
             @DefaultValue("1")
             @Description("Indicates the page number. Page number must be >= 1.")
