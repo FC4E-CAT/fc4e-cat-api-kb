@@ -23,6 +23,9 @@ According to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) , the `Unr
 ## Unreleased
 ---
 
+## 1.0.0 - 2025-04-01
+---
+
 
 ### Added
 - [#4](https://github.com/FC4E-CAT/fc4e-cat-api-kb/pull/4) CAT-826: [KB] Database Setup & Implement Example Views
